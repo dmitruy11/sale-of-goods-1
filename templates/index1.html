@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Купленные товары</title>
+</head>
+<body>
+    <h1>Купленные товары</h1>
+    <div id="item-list"></div>
+
+    <script>
+        // Массив для хранения купленных товаров
+        let purchased_products= [ ]
+
+        // Функция для вывода товаров на страницу
+        function displayPurchasedItems(items) {
+            const itemList = document.getElementById('item-list');
+            itemList.innerHTML = ""; // Очищаем содержимое перед добавлением новых
+
+            items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.textContent = `${item.name} - Количество: ${item.quantity}, Цена: ${item.price} руб.`;
+                itemList.appendChild(itemDiv);
+            });
+        }
+
+        // Выводим купленные товары на страницу
+        displayPurchasedItems(purchasedItems);
+    </script>
+</body>
+</html>
